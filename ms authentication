@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanikala Voting System</title>
+    <style>
+        body {
+            background-color: #800000;
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #F5DEB3;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #008CBA;
+            color: white;
+            padding: 12px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+ text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Tanikala Voting System</h1>
+        </div>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div id="otpSection" style="display:none;">
+            <input type="text" id="otp" placeholder="Enter OTP" required>
+            <button id="verifyOtp">Verify OTP</button>
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 FOURMULA 1
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Simulate Microsoft Authentication
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Here you would typically call your backend to authenticate the user
+            // For demonstration, we assume authentication is successful
+            console.log('User  authenticated:', username);
+            // Show OTP section
+            document.getElementById('otpSection').style.display = 'block';
+
+            // Simulate sending OTP
+            sendOtp(username);
+        });
+
+        function sendOtp(username) {
+            // Simulate sending OTP to user's registered email/phone
+            console.log('OTP sent to user:', username);
+            // In a real application, you would send the OTP via an API call
+        }
+
+        document.getElementById('verifyOtp').addEventListener('click', function() {
+            const otp = document.getElementById('otp').value;
+            // Here you would typically verify the OTP with your backend
+            console.log('Verifying OTP:', otp);
+            // Simulate OTP verification
+            if (otp === '123456') { // Replace with actual OTP verification logic
+                alert('OTP verified! You can now vote.');
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
